@@ -103,6 +103,15 @@ module.exports = function(RED) {
             autoCommitMsgCount: 10
         };
 
+        if(config.fetchMaxBytes != '')
+        {
+            try {
+                options.fetchMaxBytes = parseInt(config.fetchMaxBytes);
+            }
+            catch(e){
+                node.error(e);
+            }
+        }
 
         try {
             var consumer = new HighLevelConsumer(client, topics, options);
