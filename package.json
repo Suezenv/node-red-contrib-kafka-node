@@ -1,13 +1,13 @@
 {
-    "name"         : "node-red-contrib-kafka-node",
+    "name"         : "node-red-contrib-kafka-node-fix",
     "version"      : "0.1.7",
-    "description"  : "Node-RED nodes of HighLevel Kafka Producer and Consumer",
+    "description"  : "Patch for Node-RED nodes of HighLevel Kafka Producer and Consumer",
     "dependencies" : {
         "kafka-node": ">=0.3.2"
     },
     "repository" : {
         "type" : "git",
-        "url"  : "https://github.com/fwang7/node-red-contrib-kafka-node.git"
+        "url"  : "https://github.com/Suezenv/node-red-contrib-kafka-node.git"
     },
     "license"  : "Apache",
     "keywords" : [ "node-red", "kafka", "kafka producer", "kafka consumer","nodered", "nodered kafka" ],

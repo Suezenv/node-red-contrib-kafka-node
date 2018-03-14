@@ -1,3 +1,5 @@
+PATCHED VERSION OF https://github.com/hjespers/node-red-contrib-rdkafka
+
 # Kafka Node
 Kafka node can produce/consume the mesasges to/from kafka cluster along with topic(s) on [NodeRED](http://nodered.org).
 
