@@ -22,9 +22,5 @@
         "nodes": {
             "kafka": "kafka.js"
         }
-    },
-    "author": {
-        "name": "Feng Wang",
-        "email": "desperado.wf@gmail.com"
     }
 }
