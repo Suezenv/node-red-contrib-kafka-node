@@ -1,6 +1,6 @@
 {
     "name"         : "node-red-contrib-kafka-node-fix",
-    "version"      : "0.1.7",
+    "version"      : "0.1.8",
     "description"  : "Patch for Node-RED nodes of HighLevel Kafka Producer and Consumer",
     "dependencies" : {
         "kafka-node": ">=0.3.2"
@@ -15,10 +15,6 @@
         "nodes" : {
             "kafka" : "kafka.js"
         }
-    },
-    "author" : {
-        "name" : "Feng Wang",
-        "email": "desperado.wf@gmail.com"
     }
 }
 
