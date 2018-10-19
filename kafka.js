@@ -5,7 +5,7 @@ module.exports = function(RED) {
     /*
      *   Kafka Producer
      *   Parameters:
-     - topics 
+     - topics
      - zkquorum(example: zkquorum = “[host]:2181")
      */
     function kafkaNode(config) {
@@ -73,7 +73,19 @@ module.exports = function(RED) {
         var clusterZookeeper = config.zkquorum;
         var groupId = config.groupId;
         var debug = (config.debug == "debug");
-        var client = new Client(clusterZookeeper);
+
+        var zkOptions = {};
+        if(config.sessionTimeout != '')
+        {
+            try {
+                zkOptions.sessionTimeout = parseInt(config.sessionTimeout);
+            }
+            catch(e){
+                node.error(e);
+            }
+        }
+
+        var client = new Client(clusterZookeeper, null, zkOptions);
 
         var topicJSONArry = [];
 
@@ -127,7 +139,7 @@ module.exports = function(RED) {
                 node.send(msg);
             });
 
-            
+
             consumer.on('error', function (err) {
                console.error(err);
             });

@@ -1,6 +1,6 @@
 {
     "name"         : "node-red-contrib-kafka-node-fix",
-    "version"      : "0.1.11",
+    "version"      : "0.1.12",
     "description"  : "Patch for Node-RED nodes of HighLevel Kafka Producer and Consumer",
     "dependencies" : {
         "kafka-node": ">=0.3.2"
@@ -9,13 +9,19 @@
         "type" : "git",
         "url"  : "https://github.com/Suezenv/node-red-contrib-kafka-node.git"
     },
-    "license"  : "Apache",
-    "keywords" : [ "node-red", "kafka", "kafka producer", "kafka consumer","nodered", "nodered kafka" ],
-    "node-red" : {
-        "nodes" : {
-            "kafka" : "kafka.js"
+    "license": "Apache",
+    "keywords": [
+        "node-red",
+        "kafka",
+        "kafka producer",
+        "kafka consumer",
+        "nodered",
+        "nodered kafka"
+    ],
+    "node-red": {
+        "nodes": {
+            "kafka": "kafka.js"
         }
     },
-    "author": "Thomas Lecarpentier"
+    "author": "Suezenv"
 }
-
