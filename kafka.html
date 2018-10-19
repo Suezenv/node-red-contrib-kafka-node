@@ -5,8 +5,7 @@
         defaults: {
             zkquorum:{value:"", required: true},
             topics: {value:"", required: true},
-            debug: {value:""},
-            fetchMaxBytes: {value:""}
+            debug: {value:""}
         },
         inputs:1,
         outputs:0,
@@ -58,7 +57,9 @@ Topic(s) = "topic1, topic2, topic3"
             topics: {value:"", required: true},
             groupId:{value:"", required: true},
             debug: {value:""},
-            autoCommit:{value:true, required: true}
+            autoCommit:{value:true, required: true},
+            fetchMaxBytes: {value:""},
+            sessionTimeout: {value:""}
         },
         inputs:0,
         outputs:1,
@@ -93,6 +94,10 @@ Topic(s) = "topic1, topic2, topic3"
         <input type="text" id="node-input-fetchMaxBytes"  style="display: inline-block; width: auto; vertical-align: top;" placeholder="Fetch Max Bytes (integer)">
     </div>
     <div class="form-row">
+        <label for="node-input-sessionTimeout"><i class="icon-tag"></i>Zookeeper sessionTimeout</label>
+        <input type="text" id="node-input-sessionTimeout"  style="display: inline-block; width: auto; vertical-align: top;" placeholder="sessionTimeout (integer)">
+    </div>
+    <div class="form-row">
         <label for="node-input-debug"><i class="icon-tag"></i>Debug</label>
         <input type="checkbox" id="node-input-debug" style="display: inline-block; width: auto; vertical-align: top;" value="debug">
     </div>
@@ -104,6 +109,8 @@ Topic(s) = "topic1, topic2, topic3"
     <p><b>GroupId</b> <i>The groupId of consumers.</i></p>
     <p><b>Topic(s)</b> <i>The topic(s) of message to produce.</i></p>
     <p><b>Auto Commit</b> <i>Messages are committed automatically.</i></p>
+    <p><b>fetchMaxBytes</b> <i>Kafka node HighLevelConsummer client fetchMaxBytes</i></p>
+    <p><b>sessionTimeout</b> <i>Zookeeper kafka node client sessionTimeout</i></p>
     <p>Check <b>Debug</b> <i> to print extra information to console.</i></p>
     <pre>
 Example:
