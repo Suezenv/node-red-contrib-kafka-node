@@ -32,7 +32,6 @@
         <label for="node-input-debug"><i class="icon-tag"></i>Debug</label>
         <input type="checkbox" id="node-input-debug" style="display: inline-block; width: auto; vertical-align: top;" value="debug">
     </div>
-
 </script>
 
 <script type="text/x-red" data-help-name="kafka">
@@ -59,7 +58,8 @@ Topic(s) = "topic1, topic2, topic3"
             debug: {value:""},
             autoCommit:{value:true, required: true},
             fetchMaxBytes: {value:""},
-            sessionTimeout: {value:""}
+            sessionTimeout: { value: '' },
+            delayConsumerCreation: { value: true, required: true },
         },
         inputs:0,
         outputs:1,
@@ -98,6 +98,10 @@ Topic(s) = "topic1, topic2, topic3"
         <input type="text" id="node-input-sessionTimeout"  style="display: inline-block; width: auto; vertical-align: top;" placeholder="sessionTimeout (integer)">
     </div>
     <div class="form-row">
+        <label for="node-input-delay-consumer-creation"><i class="icon-tag"></i>Delay consumer creation</label>
+        <input type="checkbox" id="node-input-delayConsumerCreation" style="display: inline-block; width: auto; vertical-align: top;" value="delayConsumerCreation">
+    </div>
+    <div class="form-row">
         <label for="node-input-debug"><i class="icon-tag"></i>Debug</label>
         <input type="checkbox" id="node-input-debug" style="display: inline-block; width: auto; vertical-align: top;" value="debug">
     </div>
@@ -110,7 +114,8 @@ Topic(s) = "topic1, topic2, topic3"
     <p><b>Topic(s)</b> <i>The topic(s) of message to produce.</i></p>
     <p><b>Auto Commit</b> <i>Messages are committed automatically.</i></p>
     <p><b>fetchMaxBytes</b> <i>Kafka node HighLevelConsummer client fetchMaxBytes</i></p>
-    <p><b>sessionTimeout</b> <i>Zookeeper kafka node client sessionTimeout</i></p>
+    <p><b>sessionTimeout</b> <i>Zookeeper kafka node client sessionTimeout (milliseconds)</i></p>
+    <p>Check <b>Delay consumer creation</b><i> to delay the consumer creation by the value of </i><b>sessionTimeout (default: 60000 millisecondes)</b></p>
     <p>Check <b>Debug</b> <i> to print extra information to console.</i></p>
     <pre>
 Example:

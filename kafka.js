@@ -125,29 +125,39 @@ module.exports = function(RED) {
             }
         }
 
-        try {
-            var consumer = new HighLevelConsumer(client, topics, options);
-            this.log("Consumer created...");
-            this.status({fill:"green",shape:"dot",text:"connected to "+clusterZookeeper});
+        var consumerCreationDelay = 0;
 
-            consumer.on('message', function (message) {
-                if (debug) {
-                    console.log(message);
-                    node.log(message);
-                }
-                var msg = {payload: message};
-                node.send(msg);
-            });
-
-
-            consumer.on('error', function (err) {
-               console.error(err);
-            });
+        if (config.delayConsumerCreation) {
+            consumerCreationDelay = parseInt(config.sessionTimeout) || 60000;
+            node.log('Consumer creation delayed by ' + consumerCreationDelay + ' secondes');
         }
-        catch(e){
-            node.error(e);
-            return;
-        }
+
+        var createConsumer = function() {
+            try {
+                var consumer = new HighLevelConsumer(client, topics, options);
+                node.log("Consumer created...");
+                node.status({fill:"green",shape:"dot",text:"connected to "+clusterZookeeper});
+
+                consumer.on('message', function (message) {
+                    if (debug) {
+                        console.log(message);
+                        node.log(message);
+                    }
+                    var msg = {payload: message};
+                    node.send(msg);
+                });
+
+                consumer.on('error', function (err) {
+                console.error(err);
+                });
+            }
+            catch(e){
+                node.error(e);
+                return;
+            }
+        };
+
+        setTimeout(createConsumer, consumerCreationDelay);
     }
 
     RED.nodes.registerType("kafka in", kafkaInNode);
