@@ -129,7 +129,7 @@ module.exports = function(RED) {
 
         if (config.delayConsumerCreation) {
             consumerCreationDelay = parseInt(config.sessionTimeout) || 60000;
-            node.log('Consumer creation delayed by ' + consumerCreationDelay + ' secondes');
+            node.log('Consumer creation delayed by ' + consumerCreationDelay + ' millisecondes');
         }
 
         var createConsumer = function() {
